@@ -99,7 +99,7 @@ class SAWCalculator:
         k0 = 2 * np.pi / lambda_val
         w0 = 2 * np.pi / T
         w = w0 + complex(0, 0.000001 * w0)
-        index = transform_matrix @ np.array([0, 1, 0])
+        index = transform_matrix @ np.array([0, 1, 0]) # What is this for? 
         
         if debug:
             initial_debug_values = {
