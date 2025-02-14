@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "saw_elastic_predictions"
+version = "0.1.0"
+description = "Surface Acoustic Wave (SAW) velocity calculator for elastic materials"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "Myles", email = "your.email@example.com"}
+]
+dependencies = [
+    "numpy>=1.20.0",
+    "scipy>=1.7.0",
+    "matplotlib>=3.4.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"] 

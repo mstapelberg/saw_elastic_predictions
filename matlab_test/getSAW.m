@@ -60,6 +60,10 @@ MM=[cosd(deg) cosd(90-deg) 0;
     cosd(90+deg) cosd(deg) 0;
     0 0 1];                   %This rotation matrix is equal to rotate axes anti-clockwise by deg
 
+   
+disp('Euler Angles');
+disp(Euler);
+
 C=C_modifi(C,(Euler2matrix(Euler(1),Euler(2),Euler(3))*MM)');% Express C in the aligned sample frame
 index=(Euler2matrix(Euler(1),Euler(2),Euler(3))*MM)*[0;1;0]; % (Surface rotation has been considered) Get the direction in interest expressed in crystalline coordinate frame. (Sample is old, Crystal is new
 
@@ -191,6 +195,36 @@ for nx=1
         G33(nx,ny)=0;
         for r=1:3
             G33(nx,ny)=G33(nx,ny)+a(r)*A(r,3);
+        end
+
+        % In getSAW.m, add these prints for the first iteration (ny=1) at 30 degrees
+        if deg == 30 && ny == 1
+            disp('Debug output for 30 degrees, ny=1:');
+            disp('F matrix:');
+            disp(F);
+            disp('M matrix:');
+            disp(M);
+            disp('N matrix:');
+            disp(N);
+            disp('Polynomial roots:');
+            disp(ppC);
+            disp('Selected roots (positive real parts):');
+            disp(pp);
+            disp('First G33 value:');
+            disp(G33(1,1));
+            
+            disp('C tensor after transformation:');
+            for i=1:3
+                for j=1:3
+                    for k=1:3
+                        for l=1:3
+                            if abs(C(i,j,k,l)) > 1e5
+                                fprintf('C(%d,%d,%d,%d) = %e\n', i,j,k,l, C(i,j,k,l));
+                            end
+                        end
+                    end
+                end
+            end
         end
     end
 end

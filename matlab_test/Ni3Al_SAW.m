@@ -7,6 +7,9 @@ run material_database.m
 C_mat=getCijkl(Ni3Al);
 den=getDensity(Ni3Al);
 
+disp(C_mat)
+disp(den)
+
 Ni3Al_SAW_111=zeros(2,61);
 angles=0:60;
 for jj=1:length(angles)
