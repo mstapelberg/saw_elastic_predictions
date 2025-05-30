@@ -431,11 +431,11 @@ class SAWCalculator:
         if len(peak_candidates) == 0:
             return np.array([])
             
-        # Debug print
-        print(f"\nPeak finding debug:")
-        print(f"Number of significant peaks found: {len(peak_candidates)}")
-        print(f"Peak positions: {peak_candidates}")
-        print(f"Peak values: {y_new[peak_candidates]}")
+        # Remove debug prints - commented out
+        # print(f"\nPeak finding debug:")
+        # print(f"Number of significant peaks found: {len(peak_candidates)}")
+        # print(f"Peak positions: {peak_candidates}")
+        # print(f"Peak values: {y_new[peak_candidates]}")
         
         # Sort peaks by magnitude
         peak_magnitudes = abs(y_new[peak_candidates])
